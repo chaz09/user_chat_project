@@ -1,4 +1,11 @@
-<!-- Latest compiled and minified CSS -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mailbox</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 <!-- Optional theme -->
@@ -9,13 +16,16 @@
 </head>
 <body>
 
-
-
+<%= yield %>
 <% if user_signed_in? %>
   Signed in as: <strong><%= current_user.email %></strong> |
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
-
+# #2
   <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
   <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
+
+
+</body>
+</html>
